@@ -2,7 +2,7 @@
 import React, { useState } from "react";
 
 function Navigation() {
-  const [open, setOpen] = useState(true);
+  const [open, setOpen] = useState(false);
   return (
     <div className="max-md:flex-1 md:flex justify-between items-center mt-4 py-2 xl:py-4">
       <h2 className="text-black lg:text-xl xl:text-2xl font-bold hover:cursor-cell relative">
