@@ -2,33 +2,26 @@
 @tailwind components;
 @tailwind utilities;
 
-:root {
-  --background: #ffffff;
-  --foreground: #171717;
-}
-
-@media (prefers-color-scheme: dark) {
-  :root {
-    --background: #0a0a0a;
-    --foreground: #ededed;
-  }
-}
-
 body {
-  color: var(--foreground);
-  background: var(--background);
-  font-family: Arial, Helvetica, sans-serif;
+  width: 100vw;
+  background-color: #fff;
+  background-image: radial-gradient(circle, #bbb 1px, transparent 1px);
+  background-size: 20px 20px;
 }
 
 body,
 html {
   margin: 0;
   padding: 0;
-  height: 100%;
-  overflow: hidden;
+  overflow-x: hidden;
+  overflow-y: scroll;
 }
 
-.grid-background {
+html {
+  scroll-behavior: smooth;
+}
+
+/* .grid-background {
   position: fixed;
   top: 0;
   left: 0;
@@ -37,4 +30,61 @@ html {
   background-color: #fff;
   background-image: radial-gradient(circle, #ddd 1px, transparent 1px);
   background-size: 20px 20px;
+} */
+
+.glitch {
+  font-family: "Fira Code", monospace;
+  color: #0ff;
+  text-shadow: 1px 1px 0 #fb923c, -1px -1px 0 #4ade80;
+  animation: glitch 4s infinite;
+}
+@keyframes glitch {
+  0% {
+    text-shadow: 1px 1px 0 #fb923c, -1px -1px 0 #4ade80;
+  }
+  50% {
+    text-shadow: -1px -1px 0 #4ade80, 1px 1px 0 #fb923c;
+  }
+  100% {
+    text-shadow: 1px 1px 0 #fb923c, -1px -1px 0 #4ade80;
+  }
+}
+
+.typing {
+  font-family: "Fira Code", monospace;
+  white-space: nowrap;
+  overflow: hidden;
+  border-right: 2px solid;
+  animation: typing 3s steps(20) infinite, blink 0.5s step-end infinite;
+}
+
+@keyframes typing {
+  from {
+    width: 0;
+  }
+  to {
+    width: 100%;
+  }
+}
+
+@keyframes blink {
+  from,
+  to {
+    border-color: transparent;
+  }
+  50% {
+    border-color: black;
+  }
+}
+
+.about_img::before {
+  content: "";
+  position: absolute;
+  width: 400px;
+  height: 420px;
+  top: 0;
+  left: 50%;
+  transform: translateX(-50%);
+  border-radius: 50%;
+  background: linear-gradient(135deg, #dbeafe, #dbeafe 50%, #dbeafe);
 }
